@@ -1,0 +1,10 @@
+# 时间戳
+std_msgs/Header header
+# 车辆线速度
+float32 vel
+# 车辆角速度
+float32 angle
+# 铲斗高度
+float32 x_position
+# 铲斗角度
+float32 y_position
