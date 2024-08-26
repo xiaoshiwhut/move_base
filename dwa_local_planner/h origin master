@@ -1,0 +1,1507 @@
+[1mdiff --git a/CHANGELOG.rst b/CHANGELOG.rst[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ab685aa[m
+[1m--- /dev/null[m
+[1m+++ b/CHANGELOG.rst[m
+[36m@@ -0,0 +1,147 @@[m
+[32m+[m[32m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[m
+[32m+[m[32mChangelog for package dwa_local_planner[m
+[32m+[m[32m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[m
+[32m+[m
+[32m+[m[32m1.17.1 (2020-08-27)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.17.0 (2020-04-02)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Merge pull request `#982 <https://github.com/ros-planning/navigation/issues/982>`_ from ros-planning/noetic_prep[m
+[32m+[m[32m  Noetic Migration[m
+[32m+[m[32m* increase required cmake version[m
+[32m+[m[32m* Contributors: Michael Ferguson[m
+[32m+[m
+[32m+[m[32m1.16.6 (2020-03-18)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.16.5 (2020-03-15)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* [melodic] updated install for better portability. (`#973 <https://github.com/ros-planning/navigation/issues/973>`_)[m
+[32m+[m[32m* Contributors: Sean Yen[m
+[32m+[m
+[32m+[m[32m1.16.4 (2020-03-04)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Fixes gdist- and pdist_scale node paramter names (`#936 <https://github.com/cobalt-robotics/navigation/issues/936>`_)[m
+[32m+[m[32m  Renames goal and path distance dynamic reconfigure parameter[m
+[32m+[m[32m  names in the cfg file in order to actually make the parameters[m
+[32m+[m[32m  used by the trajectory planner changeable.[m
+[32m+[m[32m  Fixes `#935 <https://github.com/cobalt-robotics/navigation/issues/935>`_[m
+[32m+[m[32m* Contributors: David Leins[m
+[32m+[m
+[32m+[m[32m1.16.3 (2019-11-15)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Set footprint before in place rotation continuation (`#829 <https://github.com/ros-planning/navigation/issues/829>`_) (`#861 <https://github.com/ros-planning/navigation/issues/861>`_)[m
+[32m+[m[32m  * Make sure to call setFootprint() before an in-place rotation[m
+[32m+[m[32m  * Change to const reference[m
+[32m+[m[32m  * Remove footprint from findBestPath[m
+[32m+[m[32m* Contributors: David V. Lu!![m
+[32m+[m
+[32m+[m[32m1.16.2 (2018-07-31)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Merge pull request `#773 <https://github.com/ros-planning/navigation/issues/773>`_ from ros-planning/packaging_fixes[m
+[32m+[m[32m  packaging fixes[m
+[32m+[m[32m* fix depends for dwa_local_planner[m
+[32m+[m[32m  * add tf2_geometry_msgs (due to https://github.com/ros/geometry2/issues/275)[m
+[32m+[m[32m  * add missing depends on angles, sensor_msgs, tf2[m
+[32m+[m[32m* Contributors: Michael Ferguson[m
+[32m+[m
+[32m+[m[32m1.16.1 (2018-07-28)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.16.0 (2018-07-25)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Merge pull request `#765 <https://github.com/ros-planning/navigation/issues/765>`_ from ros-planning/remove_pcl[m
+[32m+[m[32m  remove left over PCL depends in dwa_local_planner[m
+[32m+[m[32m* Remove PCL from local planners[m
+[32m+[m[32m* Switch to TF2 `#755 <https://github.com/ros-planning/navigation/issues/755>`_[m
+[32m+[m[32m* Make trajectory scoring scales consistent.[m
+[32m+[m[32m* unify parameter names between base_local_planner and dwa_local_planner[m
+[32m+[m[32m  addresses parts of `#90 <https://github.com/ros-planning/navigation/issues/90>`_[m
+[32m+[m[32m* Contributors: David V. Lu, Michael Ferguson, Pavlo Kolomiiets, Vincent Rabaud, moriarty[m
+[32m+[m
+[32m+[m[32m1.15.2 (2018-03-22)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Merge pull request `#673 <https://github.com/ros-planning/navigation/issues/673>`_ from ros-planning/email_update_lunar[m
+[32m+[m[32m  update maintainer email (lunar)[m
+[32m+[m[32m* Merge pull request `#649 <https://github.com/ros-planning/navigation/issues/649>`_ from aaronhoy/lunar_add_ahoy[m
+[32m+[m[32m  Add myself as a maintainer.[m
+[32m+[m[32m* Contributors: Aaron Hoy, Michael Ferguson[m
+[32m+[m
+[32m+[m[32m1.15.1 (2017-08-14)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.15.0 (2017-08-07)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* convert packages to format2[m
+[32m+[m[32m* Add cost function to prevent unnecessary spinning[m
+[32m+[m[32m* Fix CMakeLists + package.xmls (`#548 <https://github.com/ros-planning/navigation/issues/548>`_)[m
+[32m+[m[32m* import only PCL common[m
+[32m+[m[32m* remove GCC warnings[m
+[32m+[m[32m* Fix CMake warnings[m
+[32m+[m[32m* Contributors: Martin Günther, Mikael Arguedas, Morgan Quigley, Vincent Rabaud[m
+[32m+[m
+[32m+[m[32m1.14.0 (2016-05-20)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.13.1 (2015-10-29)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.13.0 (2015-03-17)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* link only libraries found with find_package[m
+[32m+[m[32m* Contributors: Lukas Bulwahn[m
+[32m+[m
+[32m+[m[32m1.12.0 (2015-02-04)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* update maintainer email[m
+[32m+[m[32m* Contributors: Michael Ferguson[m
+[32m+[m
+[32m+[m[32m1.11.15 (2015-02-03)[m
+[32m+[m[32m--------------------[m
+[32m+[m[32m* Add ARCHIVE_DESTINATION for static builds[m
+[32m+[m[32m* Contributors: Gary Servin[m
+[32m+[m
+[32m+[m[32m1.11.14 (2014-12-05)[m
+[32m+[m[32m--------------------[m
+[32m+[m
+[32m+[m[32m1.11.13 (2014-10-02)[m
+[32m+[m[32m--------------------[m
+[32m+[m
+[32m+[m[32m1.11.12 (2014-10-01)[m
+[32m+[m[32m--------------------[m
+[32m+[m
+[32m+[m[32m1.11.11 (2014-07-23)[m
+[32m+[m[32m--------------------[m
+[32m+[m
+[32m+[m[32m1.11.10 (2014-06-25)[m
+[32m+[m[32m--------------------[m
+[32m+[m
+[32m+[m[32m1.11.9 (2014-06-10)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.11.8 (2014-05-21)[m
+[32m+[m[32m-------------------[m
+[32m+[m
+[32m+[m[32m1.11.7 (2014-05-21)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* update build to find eigen using cmake_modules[m
+[32m+[m[32m* Contributors: Michael Ferguson[m
+[32m+[m
+[32m+[m[32m1.11.5 (2014-01-30)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Fix for `#5 <https://github.com/ros-planning/navigation/issues/5>`_[m
+[32m+[m[32m* Parameter to sum scores in DWA Planner[m
+[32m+[m[32m* Keep consistent allignment_cost scale[m
+[32m+[m[32m  Use the configured alignment cost instead of resetting to 1.0. This[m
+[32m+[m[32m  condition (farther from goal than forward_point_distance) is probably[m
+[32m+[m[32m  met at the start of navigation, it seems this cost should be obeyed[m
+[32m+[m[32m  until the robot gets close, then ignored completely.[m
+[32m+[m[32m* Cheat factor for end of DWA Plans[m
+[32m+[m[32m* Change maintainer from Hersh to Lu[m
+[32m+[m
+[32m+[m[32m1.11.4 (2013-09-27)[m
+[32m+[m[32m-------------------[m
+[32m+[m[32m* Package URL Updates[m
+[32m+[m[32m* Changed new Odom-Helper::initialize() function to setOdomTopic().[m
+[32m+[m[32m* some more corrections for the pointcloud object bug[m
+[1mdiff --git a/CMakeLists.txt b/CMakeLists.txt[m
+[1mindex 66dd650..0bb8b29 100644[m
+[1m--- a/CMakeLists.txt[m
+[1m+++ b/CMakeLists.txt[m
+[36m@@ -1 +1,66 @@[m
+[31m-/opt/ros/melodic/share/catkin/cmake/toplevel.cmake[m
+\ No newline at end of file[m
+[32m+[m[32mcmake_minimum_required(VERSION 3.0.2)[m
+[32m+[m[32mproject(dwa_local_planner)[m
+[32m+[m
+[32m+[m[32mfind_package(catkin REQUIRED[m
+[32m+[m[32m        COMPONENTS[m
+[32m+[m[32m            angles[m
+[32m+[m[32m            base_local_planner[m
+[32m+[m[32m            cmake_modules[m
+[32m+[m[32m            costmap_2d[m
+[32m+[m[32m            dynamic_reconfigure[m
+[32m+[m[32m            nav_core[m
+[32m+[m[32m            nav_msgs[m
+[32m+[m[32m            pluginlib[m
+[32m+[m[32m            sensor_msgs[m
+[32m+[m[32m            roscpp[m
+[32m+[m[32m            tf2[m
+[32m+[m[32m            tf2_geometry_msgs[m
+[32m+[m[32m            tf2_ros[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32mfind_package(Eigen3 REQUIRED)[m
+[32m+[m[32mremove_definitions(-DDISABLE_LIBUSB-1.0)[m
+[32m+[m[32minclude_directories([m
+[32m+[m[32m    include[m
+[32m+[m[32m    ${catkin_INCLUDE_DIRS}[m
+[32m+[m[32m    ${EIGEN3_INCLUDE_DIRS}[m
+[32m+[m[32m    )[m
+[32m+[m[32madd_definitions(${EIGEN3_DEFINITIONS})[m
+[32m+[m
+[32m+[m[32m# dynamic reconfigure[m
+[32m+[m[32mgenerate_dynamic_reconfigure_options([m
+[32m+[m[32m    cfg/DWAPlanner.cfg[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mcatkin_package([m
+[32m+[m[32m    INCLUDE_DIRS include[m
+[32m+[m[32m    LIBRARIES dwa_local_planner[m
+[32m+[m[32m    CATKIN_DEPENDS[m
+[32m+[m[32m        base_local_planner[m
+[32m+[m[32m        dynamic_reconfigure[m
+[32m+[m[32m        nav_msgs[m
+[32m+[m[32m        pluginlib[m
+[32m+[m[32m        sensor_msgs[m
+[32m+[m[32m        roscpp[m
+[32m+[m[32m        tf2[m
+[32m+[m[32m        tf2_ros[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32madd_library(dwa_local_planner src/dwa_planner.cpp src/dwa_planner_ros.cpp)[m
+[32m+[m[32madd_dependencies(dwa_local_planner ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})[m
+[32m+[m[32mtarget_link_libraries(dwa_local_planner ${catkin_LIBRARIES})[m
+[32m+[m
+[32m+[m[32minstall(TARGETS dwa_local_planner[m
+[32m+[m[32m       ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}[m
+[32m+[m[32m       LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}[m
+[32m+[m[32m       RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}[m
+[32m+[m[32m       )[m
+[32m+[m
+[32m+[m[32minstall(FILES blp_plugin.xml[m
+[32m+[m[32m    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32minstall(DIRECTORY include/${PROJECT_NAME}/[m
+[32m+[m[32m  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}[m
+[32m+[m[32m  PATTERN ".svn" EXCLUDE[m
+[32m+[m[32m)[m
+[1mdiff --git a/README.md b/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex f7e0008..0000000[m
+[1m--- a/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,2 +0,0 @@[m
+[31m-# move_base[m
+[31m-whut[m
+[1mdiff --git a/blp_plugin.xml b/blp_plugin.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2b10073[m
+[1m--- /dev/null[m
+[1m+++ b/blp_plugin.xml[m
+[36m@@ -0,0 +1,7 @@[m
+[32m+[m[32m<library path="lib/libdwa_local_planner">[m
+[32m+[m[32m  <class name="dwa_local_planner/DWAPlannerROS" type="dwa_local_planner::DWAPlannerROS" base_class_type="nav_core::BaseLocalPlanner">[m
+[32m+[m[32m    <description>[m
+[32m+[m[32m      A implementation of a local planner using either a DWA approach based on configuration parameters.[m
+[32m+[m[32m    </description>[m
+[32m+[m[32m  </class>[m
+[32m+[m[32m</library>[m
+[1mdiff --git a/cfg/DWAPlanner.cfg b/cfg/DWAPlanner.cfg[m
+[1mnew file mode 100644[m
+[1mindex 0000000..29e32b6[m
+[1m--- /dev/null[m
+[1m+++ b/cfg/DWAPlanner.cfg[m
+[36m@@ -0,0 +1,39 @@[m
+[32m+[m[32m#!/usr/bin/env python[m
+[32m+[m[32m# DWA Planner configuration[m
+[32m+[m
+[32m+[m[32mfrom dynamic_reconfigure.parameter_generator_catkin import ParameterGenerator, double_t, int_t, bool_t[m
+[32m+[m[32mfrom local_planner_limits import add_generic_localplanner_params[m
+[32m+[m
+[32m+[m[32mgen = ParameterGenerator()[m
+[32m+[m
+[32m+[m[32m# This unusual line allows to reuse existing parameter definitions[m
+[32m+[m[32m# that concern all localplanners[m
+[32m+[m[32madd_generic_localplanner_params(gen)[m
+[32m+[m
+[32m+[m[32mgen.add("sim_time", double_t, 0, "The amount of time to roll trajectories out for in seconds", 1.7, 0)[m
+[32m+[m[32mgen.add("sim_granularity", double_t, 0, "The granularity with which to check for collisions along each trajectory in meters", 0.025, 0)[m
+[32m+[m[32mgen.add("angular_sim_granularity", double_t, 0, "The granularity with which to check for collisions for rotations in radians", 0.1, 0)[m
+[32m+[m
+[32m+[m[32mgen.add("path_distance_bias", double_t, 0, "The weight for the path distance part of the cost function", 0.6, 0.0)[m
+[32m+[m[32mgen.add("goal_distance_bias", double_t, 0, "The weight for the goal distance part of the cost function", 0.8, 0.0)[m
+[32m+[m[32mgen.add("occdist_scale", double_t, 0, "The weight for the obstacle distance part of the cost function", 0.01, 0.0)[m
+[32m+[m[32mgen.add("twirling_scale", double_t, 0, "The weight for penalizing any changes in robot heading", 0.0, 0.0)[m
+[32m+[m
+[32m+[m[32mgen.add("stop_time_buffer", double_t, 0, "The amount of time that the robot must stop before a collision in order for a trajectory to be considered valid in seconds", 0.2, 0)[m
+[32m+[m[32mgen.add("oscillation_reset_dist", double_t, 0, "The distance the robot must travel before oscillation flags are reset, in meters", 0.05, 0)[m
+[32m+[m[32mgen.add("oscillation_reset_angle", double_t, 0, "The angle the robot must turn before oscillation flags are reset, in radians", 0.2, 0)[m
+[32m+[m
+[32m+[m[32mgen.add("forward_point_distance", double_t, 0, "The distance from the center point of the robot to place an additional scoring point, in meters", 0.325)[m
+[32m+[m
+[32m+[m[32mgen.add("scaling_speed", double_t, 0, "The absolute value of the velocity at which to start scaling the robot's footprint, in m/s", 0.25, 0)[m
+[32m+[m[32mgen.add("max_scaling_factor", double_t, 0, "The maximum factor to scale the robot's footprint by", 0.2, 0)[m
+[32m+[m
+[32m+[m[32mgen.add("vx_samples", int_t, 0, "The number of samples to use when exploring the x velocity space", 3, 1)[m
+[32m+[m[32mgen.add("vy_samples", int_t, 0, "The number of samples to use when exploring the y velocity space", 10, 1)[m
+[32m+[m[32mgen.add("vth_samples", int_t, 0, "The number of samples to use when exploring the theta velocity space", 20, 1)[m
+[32m+[m
+[32m+[m[32mgen.add("use_dwa", bool_t, 0, "Use dynamic window approach to constrain sampling velocities to small window.", True)[m
+[32m+[m
+[32m+[m[32mgen.add("restore_defaults", bool_t, 0, "Restore to the original configuration.", False)[m
+[32m+[m
+[32m+[m[32mexit(gen.generate("dwa_local_planner", "dwa_local_planner", "DWAPlanner"))[m
+[1mdiff --git a/goal_functions.cpp b/goal_functions.cpp[m
+[1mdeleted file mode 100644[m
+[1mindex 984afa5..0000000[m
+[1m--- a/goal_functions.cpp[m
+[1m+++ /dev/null[m
+[36m@@ -1,288 +0,0 @@[m
+[31m-/*********************************************************************[m
+[31m-*[m
+[31m-* Software License Agreement (BSD License)[m
+[31m-*[m
+[31m-*  Copyright (c) 2009, Willow Garage, Inc.[m
+[31m-*  All rights reserved.[m
+[31m-*[m
+[31m-*  Redistribution and use in source and binary forms, with or without[m
+[31m-*  modification, are permitted provided that the following conditions[m
+[31m-*  are met:[m
+[31m-*[m
+[31m-*   * Redistributions of source code must retain the above copyright[m
+[31m-*     notice, this list of conditions and the following disclaimer.[m
+[31m-*   * Redistributions in binary form must reproduce the above[m
+[31m-*     copyright notice, this list of conditions and the following[m
+[31m-*     disclaimer in the documentation and/or other materials provided[m
+[31m-*     with the distribution.[m
+[31m-*   * Neither the name of Willow Garage, Inc. nor the names of its[m
+[31m-*     contributors may be used to endorse or promote products derived[m
+[31m-*     from this software without specific prior written permission.[m
+[31m-*[m
+[31m-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS[m
+[31m-*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT[m
+[31m-*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS[m
+[31m-*  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE[m
+[31m-*  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,[m
+[31m-*  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,[m
+[31m-*  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;[m
+[31m-*  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER[m
+[31m-*  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT[m
+[31m-*  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN[m
+[31m-*  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE[m
+[31m-*  POSSIBILITY OF SUCH DAMAGE.[m
+[31m-*[m
+[31m-* Author: Eitan Marder-Eppstein[m
+[31m-*********************************************************************/[m
+[31m-#include <base_local_planner/goal_functions.h>[m
+[31m-#include <tf2/LinearMath/Matrix3x3.h>[m
+[31m-#include <tf2/utils.h>[m
+[31m-#include <tf2_geometry_msgs/tf2_geometry_msgs.h>[m
+[31m-#ifdef _MSC_VER[m
+[31m-#define GOAL_ATTRIBUTE_UNUSED[m
+[31m-#else[m
+[31m-#define GOAL_ATTRIBUTE_UNUSED __attribute__ ((unused))[m
+[31m-#endif[m
+[31m-[m
+[31m-namespace base_local_planner {[m
+[31m-[m
+[31m-  double getGoalPositionDistance(const geometry_msgs::PoseStamped& global_pose, double goal_x, double goal_y) {[m
+[31m-    return hypot(goal_x - global_pose.pose.position.x, goal_y - global_pose.pose.position.y);[m
+[31m-  }[m
+[31m-[m
+[31m-  double getGoalOrientationAngleDifference(const geometry_msgs::PoseStamped& global_pose, double goal_th) {[m
+[31m-    double yaw = tf2::getYaw(global_pose.pose.orientation);[m
+[31m-    return angles::shortest_angular_distance(yaw, goal_th);[m
+[31m-  }[m
+[31m-[m
+[31m-  void publishPlan(const std::vector<geometry_msgs::PoseStamped>& path, const ros::Publisher& pub) {[m
+[31m-    //given an empty path we won't do anything[m
+[31m-    if(path.empty())[m
+[31m-      return;[m
+[31m-[m
+[31m-    //create a path message[m
+[31m-    nav_msgs::Path gui_path;[m
+[31m-    gui_path.poses.resize(path.size());[m
+[31m-    gui_path.header.frame_id = path[0].header.frame_id;[m
+[31m-    gui_path.header.stamp = path[0].header.stamp;[m
+[31m-[m
+[31m-    // Extract the plan in world co-ordinates, we assume the path is all in the same frame[m
+[31m-    for(unsigned int i=0; i < path.size(); i++){[m
+[31m-      gui_path.poses[i] = path[i];[m
+[31m-    }[m
+[31m-[m
+[31m-    pub.publish(gui_path);[m
+[31m-  }[m
+[31m-[m
+[31m-  void prunePlan(const geometry_msgs::PoseStamped& global_pose, std::vector<geometry_msgs::PoseStamped>& plan, std::vector<geometry_msgs::PoseStamped>& global_plan){[m
+[31m-    ROS_ASSERT(global_plan.size() >= plan.size());[m
+[31m-    std::vector<geometry_msgs::PoseStamped>::iterator it = plan.begin();[m
+[31m-    std::vector<geometry_msgs::PoseStamped>::iterator global_it = global_plan.begin();[m
+[31m-    while(it != plan.end()){[m
+[31m-      const geometry_msgs::PoseStamped& w = *it;[m
+[31m-      // Fixed error bound of 2 meters for now. Can reduce to a portion of the map size or based on the resolution[m
+[31m-      double x_diff = global_pose.pose.position.x - w.pose.position.x;[m
+[31m-      double y_diff = global_pose.pose.position.y - w.pose.position.y;[m
+[31m-      double distance_sq = x_diff * x_diff + y_diff * y_diff;[m
+[31m-      if(distance_sq < 1){[m
+[31m-        ROS_DEBUG("Nearest waypoint to <%f, %f> is <%f, %f>\n", global_pose.pose.position.x, global_pose.pose.position.y, w.pose.position.x, w.pose.position.y);[m
+[31m-        break;[m
+[31m-      }[m
+[31m-      it = plan.erase(it);[m
+[31m-      global_it = global_plan.erase(global_it);[m
+[31m-    }[m
+[31m-  }[m
+[31m-[m
+[31m-//过滤z的函数[m
+[31m-// std::vector<geometry_msgs::PoseStamped> filterZChanges(const std::vector<geometry_msgs::PoseStamped>& input_plan) {[m
+[31m-//     std::vector<geometry_msgs::PoseStamped> filtered_plan;[m
+[31m-//     if (input_plan.empty()) {[m
+[31m-//         return filtered_plan;[m
+[31m-//     }[m
+[31m-[m
+[31m-//     double prev_z = input_plan.front().pose.position.z;[m
+[31m-//     filtered_plan.push_back(input_plan.front());[m
+[31m-[m
+[31m-//     for (size_t i = 1; i < input_plan.size(); ++i) {[m
+[31m-//         double current_z = input_plan[i].pose.position.z;[m
+[31m-//         if ((prev_z == 1 && current_z == -1) || (prev_z == -1 && current_z == 1)) {[m
+[31m-//             // Skip this point[m
+[31m-//             continue;[m
+[31m-//         }[m
+[31m-//         filtered_plan.push_back(input_plan[i]);[m
+[31m-//         prev_z = current_z;[m
+[31m-//     }[m
+[31m-[m
+[31m-//     return filtered_plan;[m
+[31m-// }[m
+[31m-  bool transformGlobalPlan([m
+[31m-      const tf2_ros::Buffer& tf,[m
+[31m-      const std::vector<geometry_msgs::PoseStamped>& global_plan,[m
+[31m-      const geometry_msgs::PoseStamped& global_pose,[m
+[31m-      const costmap_2d::Costmap2D& costmap,[m
+[31m-      const std::string& global_frame,[m
+[31m-      std::vector<geometry_msgs::PoseStamped>& transformed_plan){[m
+[31m-    transformed_plan.clear();[m
+[31m-[m
+[31m-    if (global_plan.empty()) {[m
+[31m-      ROS_ERROR("Received plan with zero length");[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-[m
+[31m-    const geometry_msgs::PoseStamped& plan_pose = global_plan[0];[m
+[31m-    try {[m
+[31m-      // get plan_to_global_transform from plan frame to global_frame[m
+[31m-      geometry_msgs::TransformStamped plan_to_global_transform = tf.lookupTransform(global_frame, ros::Time(),[m
+[31m-          plan_pose.header.frame_id, plan_pose.header.stamp, plan_pose.header.frame_id, ros::Duration(0.5));[m
+[31m-[m
+[31m-      //let's get the pose of the robot in the frame of the plan[m
+[31m-      geometry_msgs::PoseStamped robot_pose;[m
+[31m-      tf.transform(global_pose, robot_pose, plan_pose.header.frame_id);[m
+[31m-[m
+[31m-      //we'll discard points on the plan that are outside the local costmap[m
+[31m-      double dist_threshold = std::max(costmap.getSizeInCellsX() * costmap.getResolution() / 2.0,[m
+[31m-                                       costmap.getSizeInCellsY() * costmap.getResolution() / 2.0);[m
+[31m-[m
+[31m-      unsigned int i = 0;[m
+[31m-      double sq_dist_threshold = dist_threshold * dist_threshold;[m
+[31m-      double sq_dist = 0;[m
+[31m-    [m
+[31m-      //we need to loop to a point on the plan that is within a certain distance of the robot[m
+[31m-      while(i < (unsigned int)global_plan.size()) {[m
+[31m-        double x_diff = robot_pose.pose.position.x - global_plan[i].pose.position.x;[m
+[31m-        double y_diff = robot_pose.pose.position.y - global_plan[i].pose.position.y;[m
+[31m-        sq_dist = x_diff * x_diff + y_diff * y_diff;[m
+[31m-        if (sq_dist <= sq_dist_threshold) {[m
+[31m-          break;[m
+[31m-        }[m
+[31m-        ++i;[m
+[31m-      }[m
+[31m-[m
+[31m-      geometry_msgs::PoseStamped newer_pose;[m
+[31m-      bool is_first_point = true; // 用于标记是否是第一个点[m
+[31m-      double prev_z = 0.0; // 用于存储前一个点的z值[m
+[31m-     //std::vector<geometry_msgs::PoseStamped> filtered_plan;[m
+[31m-      //now we'll transform until points are outside of our distance threshold[m
+[31m-      while(i < (unsigned int)global_plan.size() && sq_dist <= sq_dist_threshold) {[m
+[31m-        const geometry_msgs::PoseStamped& pose = global_plan[i];[m
+[31m-        tf2::doTransform(pose, newer_pose, plan_to_global_transform);[m
+[31m-         ROS_INFO("Processing point %u: x=%f, y=%f, z=%f", i, newer_pose.pose.position.x, newer_pose.pose.position.y, newer_pose.pose.position.z);[m
+[31m-      if (!is_first_point) {[m
+[31m-           ROS_INFO("Previous z: %f, Current z: %f", prev_z, newer_pose.pose.position.z);[m
+[31m-           if ((prev_z == 1.0 && newer_pose.pose.position.z == -1.0) ||  (prev_z == -1.0 && newer_pose.pose.position.z == 1.0)) {     // 跳过这个点     [m
+[31m-     ROS_INFO("Skipping point due to z value change from %f to %f", prev_z, newer_pose.pose.position.z);[m
+[31m-      ++i;[m
+[31m-      continue;[m
+[31m-    }[m
+[31m-  }[m
+[31m-        prev_z = newer_pose.pose.position.z;[m
+[31m-        is_first_point = false;[m
+[31m-        transformed_plan.push_back(newer_pose);[m
+[31m-        double x_diff = robot_pose.pose.position.x - global_plan[i].pose.position.x;[m
+[31m-        double y_diff = robot_pose.pose.position.y - global_plan[i].pose.position.y;[m
+[31m-        sq_dist = x_diff * x_diff + y_diff * y_diff;[m
+[31m-        ++i;[m
+[31m-      } [m
+[31m-           //  加入新的裁剪[m
+[31m-    // while(i<global_plan.size()){[m
+[31m-    //   double z_value = global_plan[i].pose.position.z;[m
+[31m-    //     if(i > 0 && global_plan[i-1].pose.position.z == 1.0 && z_value == -1.0){[m
+[31m-    //       ROS_INFO("Detected z value change from 1 to -1, jin xing cai jian.");[m
+[31m-    //       break;[m
+[31m-    //     }[m
+[31m-    //     ++i;[m
+[31m-    // }[m
+[31m-    // filtered_plan = filterZChanges(filtered_plan);[m
+[31m-    }[m
+[31m-[m
+[31m-    catch(tf2::LookupException& ex) {[m
+[31m-      ROS_ERROR("No Transform available Error: %s\n", ex.what());[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-    catch(tf2::ConnectivityException& ex) {[m
+[31m-      ROS_ERROR("Connectivity Error: %s\n", ex.what());[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-    catch(tf2::ExtrapolationException& ex) {[m
+[31m-      ROS_ERROR("Extrapolation Error: %s\n", ex.what());[m
+[31m-      if (!global_plan.empty())[m
+[31m-        ROS_ERROR("Global Frame: %s Plan Frame size %d: %s\n", global_frame.c_str(), (unsigned int)global_plan.size(), global_plan[0].header.frame_id.c_str());[m
+[31m-[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-[m
+[31m-    return true;[m
+[31m-  }[m
+[31m-[m
+[31m-  bool getGoalPose(const tf2_ros::Buffer& tf,[m
+[31m-      const std::vector<geometry_msgs::PoseStamped>& global_plan,[m
+[31m-      const std::string& global_frame, geometry_msgs::PoseStamped &goal_pose) {[m
+[31m-    if (global_plan.empty())[m
+[31m-    {[m
+[31m-      ROS_ERROR("Received plan with zero length");[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-[m
+[31m-    const geometry_msgs::PoseStamped& plan_goal_pose = global_plan.back();[m
+[31m-    try{[m
+[31m-      geometry_msgs::TransformStamped transform = tf.lookupTransform(global_frame, ros::Time(),[m
+[31m-                         plan_goal_pose.header.frame_id, plan_goal_pose.header.stamp,[m
+[31m-                         plan_goal_pose.header.frame_id, ros::Duration(0.5));[m
+[31m-[m
+[31m-      tf2::doTransform(plan_goal_pose, goal_pose, transform);[m
+[31m-    }[m
+[31m-    catch(tf2::LookupException& ex) {[m
+[31m-      ROS_ERROR("No Transform available Error: %s\n", ex.what());[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-    catch(tf2::ConnectivityException& ex) {[m
+[31m-      ROS_ERROR("Connectivity Error: %s\n", ex.what());[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-    catch(tf2::ExtrapolationException& ex) {[m
+[31m-      ROS_ERROR("Extrapolation Error: %s\n", ex.what());[m
+[31m-      if (global_plan.size() > 0)[m
+[31m-        ROS_ERROR("Global Frame: %s Plan Frame size %d: %s\n", global_frame.c_str(), (unsigned int)global_plan.size(), global_plan[0].header.frame_id.c_str());[m
+[31m-[m
+[31m-      return false;[m
+[31m-    }[m
+[31m-    return true;[m
+[31m-  }[m
+[31m-[m
+[31m-  bool isGoalReached(const tf2_ros::Buffer& tf,[m
+[31m-      const std::vector<geometry_msgs::PoseStamped>& global_plan,[m
+[31m-      const costmap_2d::Costmap2D& costmap GOAL_ATTRIBUTE_UNUSED,[m
+[31m-      const std::string& global_frame,[m
+[31m-      geometry_msgs::PoseStamped& global_pose,[m
+[31m-      const nav_msgs::Odometry& base_odom,[m
+[31m-      double rot_stopped_vel, double trans_stopped_vel,[m
+[31m-      double xy_goal_tolerance, double yaw_goal_tolerance){[m
+[31m-[m
+[31m-    //we assume the global goal is the last point in the global plan[m
+[31m-    geometry_msgs::PoseStamped goal_pose;[m
+[31m-    getGoalPose(tf, global_plan, global_frame, goal_pose);[m
+[31m-[m
+[31m-    double goal_x = goal_pose.pose.position.x;[m
+[31m-    double goal_y = goal_pose.pose.position.y;[m
+[31m-    double goal_th = tf2::getYaw(goal_pose.pose.orientation);[m
+[31m-[m
+[31m-    //check to see if we've reached the goal position[m
+[31m-    if(getGoalPositionDistance(global_pose, goal_x, goal_y) <= xy_goal_tolerance) {[m
+[31m-      //check to see if the goal orientation has been reached[m
+[31m-      if(fabs(getGoalOrientationAngleDifference(global_pose, goal_th)) <= yaw_goal_tolerance) {[m
+[31m-        //make sure that we're actually stopped before returning success[m
+[31m-        if(stopped(base_odom, rot_stopped_vel, trans_stopped_vel))[m
+[31m-          return true;[m
+[31m-      }[m
+[31m-    }[m
+[31m-[m
+[31m-    return false;[m
+[31m-  }[m
+[31m-[m
+[31m-  bool stopped(const nav_msgs::Odometry& base_odom, [m
+[31m-      const double& rot_stopped_velocity, const double& trans_stopped_velocity){[m
+[31m-    return fabs(base_odom.twist.twist.angular.z) <= rot_stopped_velocity [m
+[31m-      && fabs(base_odom.twist.twist.linear.x) <= trans_stopped_velocity[m
+[31m-      && fabs(base_odom.twist.twist.linear.y) <= trans_stopped_velocity;[m
+[31m-  }[m
+[31m-};[m
+[1mdiff --git a/hybrid_astar_planner-main/CMakeLists.txt b/hybrid_astar_planner-main/CMakeLists.txt[m
+[1mdeleted file mode 100644[m
+[1mindex fe6e529..0000000[m
+[1m--- a/hybrid_astar_planner-main/CMakeLists.txt[m
+[1m+++ /dev/null[m
+[36m@@ -1,66 +0,0 @@[m
+[31m-cmake_minimum_required(VERSION 3.0.2)[m
+[31m-project(hybrid_astar_planner)[m
+[31m-[m
+[31m-set(CMAKE_CXX_STANDARD 11)[m
+[31m-set(CMAKE_CXX_COMPILER "g++")[m
+[31m-[m
+[31m-# add_subdirectory(test_the_plugin)[m
+[31m-[m
+[31m-find_package(catkin REQUIRED COMPONENTS[m
+[31m-  geometry_msgs[m
+[31m-  pluginlib[m
+[31m-  costmap_2d[m
+[31m-  roscpp[m
+[31m-  nav_core[m
+[31m-  tf2_ros[m
+[31m-  ompl[m
+[31m-)[m
+[31m-[m
+[31m-catkin_package([m
+[31m-  INCLUDE_DIRS include[m
+[31m-  LIBRARIES ${PROJECT_NAME}[m
+[31m-  geometry_msgs[m
+[31m-  pluginlib[m
+[31m-  roscpp[m
+[31m-  nav_core[m
+[31m-  tf2_ros[m
+[31m-  ompl[m
+[31m-)[m
+[31m-[m
+[31m-include_directories([m
+[31m-  include[m
+[31m-  test_the_plugin/include[m
+[31m-  ${catkin_INCLUDE_DIRS}[m
+[31m-  ${OMPL_INCLUDE_DIRS}[m
+[31m-)[m
+[31m-[m
+[31m-# find_package(ompl REQUIRED)[m
+[31m-[m
+[31m-# if(NOT OMPL_FOUND)[m
+[31m-#     message(AUTHOR_WARNING,"Open Motion Planning Library not found")[m
+[31m-# endif(NOT OMPL_FOUND)[m
+[31m-[m
+[31m-[m
+[31m-add_executable(test_planner test_the_plugin/src/test.cpp test_the_plugin/src/test_plugins.cpp)[m
+[31m-target_link_libraries(test_planner ${catkin_LIBRARIES})[m
+[31m-[m
+[31m-add_executable(tf_test_broadcaster test_the_plugin/src/tf_broadcaster.cpp)[m
+[31m-target_link_libraries(tf_test_broadcaster ${catkin_LIBRARIES})[m
+[31m-[m
+[31m-add_library(${PROJECT_NAME}[m
+[31m-  src/planner_core.cpp [m
+[31m-  src/hybrid_astar.cpp [m
+[31m-  src/node2d.cpp[m
+[31m-  src/a_start.cpp[m
+[31m-  src/visualize.cpp[m
+[31m-  src/node3d.cpp[m
+[31m-  src/hybrid_astar.cpp[m
+[31m-  src/algorithm.cpp[m
+[31m-  src/dubins.cpp[m
+[31m-  src/ReedsShepp.cpp[m
+[31m-)[m
+[31m-target_link_libraries(${PROJECT_NAME} ${OMPL_LIBRARIES})[m
+[31m-[m
+[31m-install(FILES bgp_plugin.xml[m
+[31m-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}[m
+[31m-)[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/LICENSE b/hybrid_astar_planner-main/LICENSE[m
+[1mdeleted file mode 100644[m
+[1mindex 5b18a23..0000000[m
+[1m--- a/hybrid_astar_planner-main/LICENSE[m
+[1m+++ /dev/null[m
+[36m@@ -1,29 +0,0 @@[m
+[31m-BSD 3-Clause License[m
+[31m-[m
+[31m-Copyright (c) 2021, dengpw[m
+[31m-All rights reserved.[m
+[31m-[m
+[31m-Redistribution and use in source and binary forms, with or without[m
+[31m-modification, are permitted provided that the following conditions are met:[m
+[31m-[m
+[31m-1. Redistributions of source code must retain the above copyright notice, this[m
+[31m-   list of conditions and the following disclaimer.[m
+[31m-[m
+[31m-2. Redistributions in binary form must reproduce the above copyright notice,[m
+[31m-   this list of conditions and the following disclaimer in the documentation[m
+[31m-   and/or other materials provided with the distribution.[m
+[31m-[m
+[31m-3. Neither the name of the copyright holder nor the names of its[m
+[31m-   contributors may be used to endorse or promote products derived from[m
+[31m-   this software without specific prior written permission.[m
+[31m-[m
+[31m-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"[m
+[31m-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE[m
+[31m-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE[m
+[31m-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE[m
+[31m-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL[m
+[31m-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR[m
+[31m-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER[m
+[31m-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,[m
+[31m-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE[m
+[31m-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.[m
+[1mdiff --git a/hybrid_astar_planner-main/README.md b/hybrid_astar_planner-main/README.md[m
+[1mdeleted file mode 100644[m
+[1mindex 3deffac..0000000[m
+[1m--- a/hybrid_astar_planner-main/README.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,41 +0,0 @@[m
+[31m-# hybrid_astar_planner[m
+[31m-[m
+[31m-This is a global planner plugin of ROS move_base package.[m
+[31m-[m
+[31m-## Introduction[m
+[31m-Traditional robot navigation algorithms (such as the logistics storage robot used by Jingdong or Amazon)  [m
+[31m-mostly use a * algorithm or Dijkstra search algorithm to planning its trajectory after the map is gridded.   [m
+[31m-Most of them are differential models. Obviously, this kind of path is still difficult to realize for traditional  [m
+[31m-four-wheel vehicles whitch has nonholonomic constraint (vehicles with Ackerman steering mechanism).  [m
+[31m-So I designed a hybrid a * plug-in for ROS as my graduation project[m
+[31m-[m
+[31m-## How to Use[m
+[31m-[m
+[31m-### <a name="dependencies"></a>Dependencies[m
+[31m-Install all dependencies[m
+[31m-* [Open Motion Planning Library (OMPL)](http://ompl.kavrakilab.org/)[m
+[31m-* [ros_map_server](http://wiki.ros.org/map_server)[m
+[31m-[m
+[31m-### <a name="setup"></a><font color=Darkorange size=5 >Setup</font>[m
+[31m-[m
+[31m-Run the following command to clone, build, and launch the package (requires a sources ROS environment):[m
+[31m-[m
+[31m-```[m
+[31m-sudo apt install libompl-dev \[m
+[31m-&& mkdir -p ~/catkin_ws/src \[m
+[31m-&& cd ~/catkin_ws/src \[m
+[31m-&& git clone https://github.com/dengpw/hybrid_astar_planner.git  \[m
+[31m-&& cd .. \[m
+[31m-&& catkin_make \[m
+[31m-&& source devel/setup.bash \[m
+[31m-&& rospack profile \[m
+[31m-```[m
+[31m-[m
+[31m-You can run the folling command to test whether the plug-in is install propely[m
+[31m-```[m
+[31m-&& roslaunch hybrid_astar_planner test.launch[m
+[31m-```[m
+[31m-It can run a static teajectory planner using hybrid A*   [m
+[31m-If everything run fine,you can use this plugin in ROS naviagation package by making a special declaration before starting the launch file:  [m
+[31m-    &lt; `param name="base_global_planner" value="global_planner/GlobalPlanner"` / &gt;  [m
+[31m-    &lt; `param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"` / &gt;[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/hybrid_astar_planner_plugin.xml b/hybrid_astar_planner-main/hybrid_astar_planner_plugin.xml[m
+[1mdeleted file mode 100644[m
+[1mindex d084a05..0000000[m
+[1m--- a/hybrid_astar_planner-main/hybrid_astar_planner_plugin.xml[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-<library path="lib/libhybrid_astar_planner">[m
+[31m-  <class name="hybrid_astar_planner/HybridAStarPlanner" type="hybrid_astar_planner::HybridAStarPlanner" base_class_type="nav_core::BaseGlobalPlanner">[m
+[31m-    <description>[m
+[31m-      A implementation of a based planner using Hybrid A*[m
+[31m-    </description>[m
+[31m-  </class>[m
+[31m-</library>[m
+[1mdiff --git a/hybrid_astar_planner-main/include/ReedsShepp.h b/hybrid_astar_planner-main/include/ReedsShepp.h[m
+[1mdeleted file mode 100644[m
+[1mindex a070c08..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/ReedsShepp.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,90 +0,0 @@[m
+[31m-/*********************************************************************[m
+[31m-*[m
+[31m-* Software License Agreement (BSD License)[m
+[31m-*[m
+[31m-*  Copyright (c) 2016, Guan-Horng Liu.[m
+[31m-*  All rights reserved.[m
+[31m-*[m
+[31m-*  Redistribution and use in source and binary forms, with or without[m
+[31m-*  modification, are permitted provided that the following conditions[m
+[31m-*  are met:[m
+[31m-*[m
+[31m-*   * Redistributions of source code must retain the above copyright[m
+[31m-*     notice, this list of conditions and the following disclaimer.[m
+[31m-*   * Redistributions in binary form must reproduce the above[m
+[31m-*     copyright notice, this list of conditions and the following[m
+[31m-*     disclaimer in the documentation and/or other materials provided[m
+[31m-*     with the distribution.[m
+[31m-*   * Neither the name of the the copyright holder nor the names of its[m
+[31m-*     contributors may be used to endorse or promote products derived[m
+[31m-*     from this software without specific prior written permission.[m
+[31m-*[m
+[31m-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS[m
+[31m-*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT[m
+[31m-*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS[m
+[31m-*  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE[m
+[31m-*  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,[m
+[31m-*  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,[m
+[31m-*  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;[m
+[31m-*  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER[m
+[31m-*  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT[m
+[31m-*  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN[m
+[31m-*  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE[m
+[31m-*  POSSIBILITY OF SUCH DAMAGE.[m
+[31m-*[m
+[31m-* Author:  Guan-Horng Liu[m
+[31m-*********************************************************************/[m
+[31m-[m
+[31m-#ifndef SPACES_REEDS_SHEPP_STATE_SPACE_[m
+[31m-#define SPACES_REEDS_SHEPP_STATE_SPACE_[m
+[31m-[m
+[31m-#include <boost/math/constants/constants.hpp>[m
+[31m-#include <cassert>[m
+[31m-[m
+[31m-class ReedsSheppStateSpace[m
+[31m-{[m
+[31m-public:[m
+[31m-[m
+[31m-    /** \brief The Reeds-Shepp path segment types */[m
+[31m-    enum ReedsSheppPathSegmentType { RS_NOP=0, RS_LEFT=1, RS_STRAIGHT=2, RS_RIGHT=3 };[m
+[31m-[m
+[31m-    /** \brief Reeds-Shepp path types */[m
+[31m-    static const ReedsSheppPathSegmentType reedsSheppPathType[18][5];[m
+[31m-    [m
+[31m-    /** \brief Complete description of a ReedsShepp path */[m
+[31m-    class ReedsSheppPath[m
+[31m-    {[m
+[31m-    public:[m
+[31m-        ReedsSheppPath(const ReedsSheppPathSegmentType* type=reedsSheppPathType[0],[m
+[31m-            double t=std::numeric_limits<double>::max(), double u=0., double v=0.,[m
+[31m-            double w=0., double x=0.);[m
+[31m-        [m
+[31m-        double length() const { return totalLength_; }[m
+[31m-[m
+[31m-        /** Path segment types */[m
+[31m-        const ReedsSheppPathSegmentType* type_;[m
+[31m-        /** Path segment lengths */[m
+[31m-        double length_[5];[m
+[31m-        /** Total length */[m
+[31m-        double totalLength_;[m
+[31m-    };[m
+[31m-[m
+[31m-    ReedsSheppStateSpace(double turningRadius) : rho_(turningRadius) {}[m
+[31m-[m
+[31m-    double distance(double q0[3], double q1[3]);[m
+[31m-[m
+[31m-    std::vector<ReedsSheppPathSegmentType> type(double q0[3], double q1[3]);[m
+[31m-[m
+[31m-    void sample(double q0[3], double q1[3], double step_size, double &length, std::vector<std::vector<double> > &points);[m
+[31m-[m
+[31m-    /** \brief Return the shortest Reeds-Shepp path from SE(2) state state1 to SE(2) state state2 */[m
+[31m-    ReedsSheppPath reedsShepp(double q0[3], double q1[3]);[m
+[31m-[m
+[31m-protected:[m
+[31m-    void interpolate(double q0[3], ReedsSheppPath &path, double seg, double s[3]);[m
+[31m-[m
+[31m-    /** \brief Turning radius */[m
+[31m-    double rho_;[m
+[31m-};[m
+[31m-[m
+[31m-#endif[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/include/algorithm.h b/hybrid_astar_planner-main/include/algorithm.h[m
+[1mdeleted file mode 100644[m
+[1mindex c8d0735..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/algorithm.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,32 +0,0 @@[m
+[31m-#ifndef _ALGORITHM_H[m
+[31m-#define _ALGORITHM_H[m
+[31m-[m
+[31m-#include <ompl/base/spaces/ReedsSheppStateSpace.h>[m
+[31m-#include <ompl/base/spaces/DubinsStateSpace.h>[m
+[31m-#include <ompl/base/spaces/SE2StateSpace.h>[m
+[31m-#include <ompl/base/State.h>[m
+[31m-#include <ompl/base/State.h>[m
+[31m-#include "node3d.h"[m
+[31m-#include "node2d.h"[m
+[31m-#include <boost/heap/binomial_heap.hpp>[m
+[31m-#include <costmap_2d/costmap_2d.h>[m
+[31m-#include <geometry_msgs/PoseStamped.h>[m
+[31m-typedef ompl::base::SE2StateSpace::StateType State;[m
+[31m-namespace hybrid_astar_planner {[m
+[31m-// OPEN LIST AS BOOST IMPLEMENTATION[m
+[31m-struct CompareNodes {[m
+[31m-  // Sorting 3D nodes by increasing C value - the total estimated cost[m
+[31m-  bool operator()(const Node3D* lhs, const Node3D* rhs) const {[m
+[31m-    return lhs->getF() > rhs->getF();[m
+[31m-  }[m
+[31m-  // Sorting 2D nodes by increasing C value - the total estimated cost[m
+[31m-  bool operator()(const Node2D* lhs, const Node2D* rhs) const {[m
+[31m-    return lhs->getF() > rhs->getF();[m
+[31m-  }[m
+[31m-};[m
+[31m-Node3D* dubinsShot(Node3D& start, Node3D& goal, costmap_2d::Costmap2D* costmap);[m
+[31m-Node3D* reedsSheppShot(Node3D& start, Node3D& goal, costmap_2d::Costmap2D* costmap);[m
+[31m-void  updateH(Node3D& start, const Node3D& goal, Node2D* nodes2D, float* dubinsLookup, int width, int height, float inspireAstar);[m
+[31m-}[m
+[31m-[m
+[31m-#endif //end of algorithm.h[m
+[1mdiff --git a/hybrid_astar_planner-main/include/astar.h b/hybrid_astar_planner-main/include/astar.h[m
+[1mdeleted file mode 100644[m
+[1mindex 0be55b4..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/astar.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,58 +0,0 @@[m
+[31m-#ifndef _ASTAR_H[m
+[31m-#define _ASTAR_H[m
+[31m-[m
+[31m-#include <vector>[m
+[31m-#include "algorithm.h"[m
+[31m-#include "expander.h"[m
+[31m-#include "node2d.h"[m
+[31m-#include <visualization_msgs/MarkerArray.h>[m
+[31m-#include <ros/publisher.h>[m
+[31m-namespace hybrid_astar_planner {[m
+[31m-class Index {[m
+[31m-    public:[m
+[31m-        Index(int a,float b) {[m
+[31m-            i = a;[m
+[31m-            cost = b;[m
+[31m-        }[m
+[31m-        int i;[m
+[31m-        float cost;[m
+[31m-    };[m
+[31m-[m
+[31m-class astar : public Expander[m
+[31m-{[m
+[31m-[m
+[31m-    public:[m
+[31m-    astar(std::string frame_id, costmap_2d::Costmap2D* _costmap)[m
+[31m-    :Expander(frame_id, _costmap) {[m
+[31m-[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     * @brief Find the path between the start pose and goal pose[m
+[31m-     * @param start the reference of start pose [m
+[31m-     * @param goal the reference of goal pose [m
+[31m-     * @param cells_x the number of the cells of the costmap in x axis[m
+[31m-     * @param cells_y the number of the cells of the costmap in y axis[m
+[31m-     * @param plan the refrence of plan;[m
+[31m-     * @return true if a valid plan was found.[m
+[31m-    */[m
+[31m-    bool calculatePath(const geometry_msgs::PoseStamped& start, const geometry_msgs::PoseStamped& goal,[m
+[31m-                                        int cells_x, int cells_y, std::vector<geometry_msgs::PoseStamped>& plan ,ros::Publisher& pub, visualization_msgs::MarkerArray& pathNodes );[m
+[31m-    ~astar(){ }[m
+[31m-    private:[m
+[31m-[m
+[31m-    std::vector<Node2D*> gatAdjacentPoints(int cells_x, int cells_y, const unsigned char* charMap, Node2D* pathNode2D, Node2D *point );[m
+[31m-[m
+[31m-    /**[m
+[31m-     * @brief transform the 2Dnode to geometry_msgs::PoseStamped[m
+[31m-     * @param node the ptr of node[m
+[31m-     * @param plan the refrence of plan[m
+[31m-    */[m
+[31m-    void nodeToPlan(Node2D* node, std::vector<geometry_msgs::PoseStamped>& plan);[m
+[31m-    /* data */[m
+[31m-};[m
+[31m-[m
+[31m-[m
+[31m-}//end of namespace hybrid_astar_planner[m
+[31m-[m
+[31m-#endif //the end of astar.h[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/include/constants.h b/hybrid_astar_planner-main/include/constants.h[m
+[1mdeleted file mode 100644[m
+[1mindex 6aeb525..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/constants.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,84 +0,0 @@[m
+[31m-#ifndef _CONSTANTS[m
+[31m-#define _CONSTANTS[m
+[31m-[m
+[31m-#include <cmath>[m
+[31m-[m
+[31m-namespace hybrid_astar_planner {[m
+[31m-[m
+[31m-namespace Constants {[m
+[31m-/// A flag to toggle reversing (true = on; false = off)[m
+[31m-/// 设置是否允许车辆后退的标志位 true表示可以倒退；false表示只能前进不能倒退   [m
+[31m-static const bool reverse = true;  [m
+[31m-[m
+[31m-/// [#] --- Limits the maximum search depth of the algorithm, possibly terminating without the solution[m
+[31m-/// 最大迭代次数[m
+[31m-static const int iterations = 30000; [m
+[31m-[m
+[31m-/// [m] --- Uniformly adds a padding around the vehicle[m
+[31m-/// 膨胀范围[m
+[31m-static const double bloating = 0; [m
+[31m-[m
+[31m-/// [m] --- The width of the vehicle[m
+[31m-static const double width = 0.18 + 2 * bloating;//车的宽度[m
+[31m-[m
+[31m-/// [m] --- The length of the vehicle[m
+[31m-static const double length = 0.22 + 2 * bloating;//车的长度[m
+[31m-[m
+[31m-/*[m
+[31m-* 车模需要转弯半径为0.75米的[m
+[31m-* 车身长度需要0.15m(长) * 0.16m(轮宽)[m
+[31m-*/[m
+[31m-/// [m] --- the Minimum turning radius 车辆最小转弯半径 [m
+[31m-static const double r = 1;[m
+[31m-[m
+[31m-/// [m] --- The number of discretizations in heading[m
+[31m-/// 车体朝向的离散数量[m
+[31m-// static const int headings = 72;[m
+[31m-static const int headings = 72;[m
+[31m-// const float dy[] = { 0,        -0.0415893,  0.0415893};[m
+[31m-// const float dx[] = { 0.7068582,   0.705224,   0.705224};[m
+[31m-// const float dt[] = { 0,         0.1178097,   -0.1178097};[m
+[31m-[m
+[31m-const float dy[] = { 0,        -0.005198,  0.005198};[m
+[31m-const float dx[] = { 0.0883573,   0.088153,   0.088153};[m
+[31m-const float dt[] = { 0,         0.1178097,   -0.1178097};[m
+[31m-/// [°] --- The discretization value of the heading (goal condition)[m
+[31m-/// 朝向离散度数(以度表示)[m
+[31m-static const float deltaHeadingDeg = 360 / (float)headings; [m
+[31m-[m
+[31m-/// [c*M_PI] --- The discretization value of heading (goal condition)[m
+[31m-static const float deltaHeadingRad = 2 * M_PI / (float)headings; //朝向离散步长(以弧度表示)[m
+[31m-[m
+[31m-/// [c*M_PI] --- The heading part of the goal condition [m
+[31m-static const float deltaHeadingNegRad = 2 * M_PI - deltaHeadingRad;[m
+[31m-[m
+[31m-/// A flag to toggle the connection of the path via Dubin's shot (true = on; false = off)[m
+[31m-static const bool dubinsShot = false; //切换Dubin路径的开关[m
+[31m-[m
+[31m-/// A flag to toggle the connection of the path via reedsSheppShot (true = on; false = off)[m
+[31m-static const bool reedsSheppShot = true; //切换Dubin路径的开关[m
+[31m-[m
+[31m-/// A flag to toggle the Dubin's heuristic, this should be false, if reversing is enabled (true = on; false = off)[m
+[31m-static const bool dubins = false;//Dubin路径的切换开关: 若车子可以倒退，值为false[m
+[31m-// ___________________[m
+[31m-// HEURISTIC CONSTANTS[m
+[31m-[m
+[31m-/// [#] --- A factor to ensure admissibility of the holonomic with obstacles heuristic[m
+[31m-static const float factor2D = sqrt(5) / sqrt(2) + 1;[m
+[31m-/// [#] --- A movement cost penalty for turning (choosing non straight motion primitives)[m
+[31m-static const float penaltyTurning = 1.05;[m
+[31m-/// [#] --- A movement cost penalty for reversing (choosing motion primitives > 2)[m
+[31m-static const float penaltyReversing = 1.5;[m
+[31m-/// [#] --- A movement cost penalty for change of direction (changing from primitives < 3 to primitives > 2)[m
+[31m-static const float penaltyCOD = 1.5;[m
+[31m-/// [m] --- The distance to the goal when the analytical solution (Dubin's shot) first triggers[m
+[31m-static const float dubinsShotDistance = 100;[m
+[31m-/// [m] --- The step size for the analytical solution (Dubin's shot) primarily relevant for collision checking[m
+[31m-static const float dubinsStepSize = 0.088;[m
+[31m-[m
+[31m-}[m
+[31m-[m
+[31m-[m
+[31m-}[m
+[31m-[m
+[31m-#endif[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/include/dubins.h b/hybrid_astar_planner-main/include/dubins.h[m
+[1mdeleted file mode 100644[m
+[1mindex dd5eafa..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/dubins.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,218 +0,0 @@[m
+[31m-/*![m
+[31m-  \file dubins.h[m
+[31m-  \brief    A dubins path class for finding analytical solutions to the problem of the shortest path.[m
+[31m-            It has been copied from https://github.com/AndrewWalker/Dubins-Curves/ under the WTFPL. [m
+[31m-            Please refer to the author in case of questions.[m
+[31m-  \author Andrew Walker[m
+[31m-*/[m
+[31m-// Copyright (c) 2008-2014, Andrew Walker[m
+[31m-//[m
+[31m-// Permission is hereby granted, free of charge, to any person obtaining a copy[m
+[31m-// of this software and associated documentation files (the "Software"), to deal[m
+[31m-// in the Software without restriction, including without limitation the rights[m
+[31m-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell[m
+[31m-// copies of the Software, and to permit persons to whom the Software is[m
+[31m-// furnished to do so, subject to the following conditions:[m
+[31m-//[m
+[31m-// The above copyright notice and this permission notice shall be included in[m
+[31m-// all copies or substantial portions of the Software.[m
+[31m-//[m
+[31m-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR[m
+[31m-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,[m
+[31m-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE[m
+[31m-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER[m
+[31m-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,[m
+[31m-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN[m
+[31m-// THE SOFTWARE.[m
+[31m-#ifndef DUBINS_H[m
+[31m-#define DUBINS_H[m
+[31m-[m
+[31m-// Path types[m
+[31m-#define LSL (0)[m
+[31m-#define LSR (1)[m
+[31m-#define RSL (2)[m
+[31m-#define RSR (3)[m
+[31m-#define RLR (4)[m
+[31m-#define LRL (5)[m
+[31m-[m
+[31m-// Error codes[m
+[31m-#define EDUBOK        (0)   // No error[m
+[31m-#define EDUBCOCONFIGS (1)   // Colocated configurations[m
+[31m-#define EDUBPARAM     (2)   // Path parameterisitation error[m
+[31m-#define EDUBBADRHO    (3)   // the rho value is invalid[m
+[31m-#define EDUBNOPATH    (4)   // no connection between configurations with this word[m
+[31m-[m
+[31m-namespace hybrid_astar_planner {[m
+[31m-[m
+[31m-// The various types of solvers for each of the path types[m
+[31m-typedef int (*DubinsWord)(double, double, double, double* );[m
+[31m-[m
+[31m-// A complete list of the possible solvers that could give optimal paths[m
+[31m-extern DubinsWord dubins_words[];[m
+[31m-[m
+[31m-typedef struct[m
+[31m-{[m
+[31m-    double qi[3];       // the initial configuration[m
+[31m-    double param[3];    // the lengths of the three segments[m
+[31m-    double rho;         // model forward velocity / model angular velocity[m
+[31m-    int type;           // path type. one of LSL, LSR, ...[m
+[31m-} DubinsPath;[m
+[31m-[m
+[31m-/**[m
+[31m- * Callback function for path sampling[m
+[31m- *[m
+[31m- * @note the q parameter is a configuration[m
+[31m- * @note the t parameter is the distance along the path[m
+[31m- * @note the user_data parameter is forwarded from the caller[m
+[31m- * @note return non-zero to denote sampling should be stopped[m
+[31m- */[m
+[31m-[m
+[31m-/**[m
+[31m- * @brief 回调函数:[m
+[31m- *    q：一个构型(configuration)[m
+[31m- *    t：路径长度[m
+[31m- *    user_data：传递的数据[m
+[31m- * [m
+[31m- */[m
+[31m-typedef int (*DubinsPathSamplingCallback)(double q[3], double t, void* user_data);[m
+[31m-[m
+[31m-[m
+[31m-/**[m
+[31m- * Generate a path from an initial configuration to[m
+[31m- * a target configuration, with a specified maximum turning[m
+[31m- * radii[m
+[31m- *[m
+[31m- * A configuration is (x, y, theta), where theta is in radians, with zero[m
+[31m- * along the line x = 0, and counter-clockwise is positive[m
+[31m- *[m
+[31m- * @param q0    - a configuration specified as an array of x, y, theta[m
+[31m- * @param q1    - a configuration specified as an array of x, y, theta[m
+[31m- * @param rho   - turning radius of the vehicle (forward velocity divided by maximum angular velocity)[m
+[31m- * @param path  - the resultant path[m
+[31m- * @return      - non-zero on error[m
+[31m- */[m
+[31m-[m
+[31m-/**[m
+[31m- * @brief 从初始构型(始点)q0构建一条到q1的dubins路径，最大转向半径为rho(单位为米?)[m
+[31m- * [m
+[31m- * @param q0 起点[m
+[31m- * @param q1 目标点[m
+[31m- * @param rho 转向半径[m
+[31m- * @param path  构建的路径点[m
+[31m- * @return int 返回值：非0表示出错；0表示正常[m
+[31m- */[m
+[31m-int dubins_init( double q0[3], double q1[3], double rho, DubinsPath* path);[m
+[31m-[m
+[31m-/**[m
+[31m- * Calculate the length of an initialised path[m
+[31m- *[m
+[31m- * @param path - the path to find the length of[m
+[31m- */[m
+[31m-/**[m
+[31m- * @brief 计算一条经过初始化阶段（归一化）的路径的长度[m
+[31m- * [m
+[31m- * @param path 经过dubins_init()函数计算出来的路径点[m
+[31m- * @return double 返回值表示该路径的长度[m
+[31m- */[m
+[31m-double dubins_path_length( DubinsPath* path );[m
+[31m-[m
+[31m-/**[m
+[31m- * Extract an integer that represents which path type was used[m
+[31m- *[m
+[31m- * @param path    - an initialised path[m
+[31m- * @return        - one of LSL, LSR, RSL, RSR, RLR or LRL (ie/ 0-5 inclusive)[m
+[31m- */[m
+[31m-/**[m
+[31m- * @brief 计算一段路径的类型[m
+[31m- * [m
+[31m- * @param path：路径点[m
+[31m- * @return int：路径类型，整数表示LSL, LSR, RSL, RSR, RLR or LRL(用整数0-5之一表示结果)[m
+[31m- */[m
+[31m-int dubins_path_type( DubinsPath * path );[m
+[31m-[m
+[31m-/**[m
+[31m- * Calculate the configuration along the path, using the parameter t[m
+[31m- *[m
+[31m- * @param path - an initialised path[m
+[31m- * @param t    - a length measure, where 0 <= t < dubins_path_length(path)[m
+[31m- * @param q    - the configuration result[m
+[31m- * @returns    - non-zero if 't' is not in the correct range[m
+[31m- */[m
+[31m-[m
+[31m-/**[m
+[31m- * @brief 使用参数t计算沿路径path的构型（位姿）[m
+[31m- * [m
+[31m- * @param path 路径点[m
+[31m- * @param t: 长度单位，范围为 0 <= t <= dubins_path_length(path)[m
+[31m- * @param q: 计算结果[m
+[31m- * @return int： 返回值，非0值表示出错，0表示正常[m
+[31m- */[m
+[31m-int dubins_path_sample( DubinsPath* path, double t, double q[3]);[m
+[31m-[m
+[31m-/**[m
+[31m- * Walk along the path at a fixed sampling interval, calling the[m
+[31m- * callback function at each interval[m
+[31m- *[m
+[31m- * @param path      - the path to sample[m
+[31m- * @param cb        - the callback function to call for each sample[m
+[31m- * @param user_data - optional information to pass on to the callback[m
+[31m- * @param stepSize  - the distance along the path for subsequent samples[m
+[31m- */[m
+[31m-/**[m
+[31m- * @brief 用固定步长在路径path进行遍历，每个区间调用回调函数callback一次[m
+[31m- * [m
+[31m- * @param path 路径[m
+[31m- * @param cb 回调函数[m
+[31m- * @param stepSize 步长[m
+[31m- * @param user_data 用户数据，用于交换数据[m
+[31m- * @return int 返回值：非0表示出错；0表示正常[m
+[31m- */[m
+[31m-int dubins_path_sample_many( DubinsPath* path, DubinsPathSamplingCallback cb, double stepSize, void* user_data );[m
+[31m-[m
+[31m-/**[m
+[31m- * Convenience function to identify the endpoint of a path[m
+[31m- *[m
+[31m- * @param path - an initialised path[m
+[31m- * @param q    - the configuration result[m
+[31m- */[m
+[31m-/**[m
+[31m- * @brief 用于提取路径的终点[m
+[31m- * [m
+[31m- * @param path 路径[m
+[31m- * @param q 提取的终点[m
+[31m- * @return int 返回值：非0表示出错；0表示正常[m
+[31m- */[m
+[31m-int dubins_path_endpoint( DubinsPath* path, double q[3] );[m
+[31m-[m
+[31m-/**[m
+[31m- * Convenience function to extract a subset of a path[m
+[31m- *[m
+[31m- * @param path    - an initialised path[m
+[31m- * @param t       - a length measure, where 0 < t < dubins_path_length(path)[m
+[31m- * @param newpath - the resultant path[m
+[31m- */[m
+[31m-/**[m
+[31m- * @brief 提取路径的一段子集的函数[m
+[31m- * [m
+[31m- * @param path 给定的路径 [m
+[31m- * @param t  长度，范围 0 < t < dubins_path_length(path)[m
+[31m- * @param newpath 提取的子路径[m
+[31m- * @return int 返回值：非0表示出错；0表示正常[m
+[31m- */[m
+[31m-int dubins_extract_subpath( DubinsPath* path, double t, DubinsPath* newpath );[m
+[31m-[m
+[31m-// Only exposed for testing purposes[m
+[31m-//构造不同类型的路径的函数[m
+[31m-int dubins_LSL( double alpha, double beta, double d, double* outputs );[m
+[31m-int dubins_RSR( double alpha, double beta, double d, double* outputs );[m
+[31m-int dubins_LSR( double alpha, double beta, double d, double* outputs );[m
+[31m-int dubins_RSL( double alpha, double beta, double d, double* outputs );[m
+[31m-int dubins_LRL( double alpha, double beta, double d, double* outputs );[m
+[31m-int dubins_RLR( double alpha, double beta, double d, double* outputs );[m
+[31m-void dubins_segment( double t, double qi[3], double qt[3], int type);[m
+[31m-int dubins_init_normalised( double alpha, double beta, double d, DubinsPath* path);[m
+[31m-double mod2pi( double theta );[m
+[31m-double fmodr( double x, double y);[m
+[31m-}[m
+[31m-[m
+[31m-#endif //end of dubins.h[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/include/expander.h b/hybrid_astar_planner-main/include/expander.h[m
+[1mdeleted file mode 100644[m
+[1mindex 00a2e67..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/expander.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,35 +0,0 @@[m
+[31m-#ifndef _EXPANDER_H[m
+[31m-#define _EXPANDER_H[m
+[31m-#include <vector>[m
+[31m-#include <geometry_msgs/Point.h>[m
+[31m-#include <costmap_2d/costmap_2d.h>[m
+[31m-#include <geometry_msgs/PoseStamped.h>[m
+[31m-#include <boost/heap/binomial_heap.hpp>[m
+[31m-#include <ros/publisher.h>[m
+[31m-#include <visualization_msgs/MarkerArray.h>[m
+[31m-namespace hybrid_astar_planner {[m
+[31m-[m
+[31m-/**[m
+[31m- * @brief the base class of astar or hybrid astar planner[m
+[31m-*/[m
+[31m-class Expander[m
+[31m-{[m
+[31m-[m
+[31m-    public:[m
+[31m-    Expander(std::string frame_id, costmap_2d::Costmap2D* _costmap)[m
+[31m-    :frame_id_(frame_id), costmap(_costmap) {[m
+[31m-[m
+[31m-    }[m
+[31m-[m
+[31m-    virtual bool calculatePath(const geometry_msgs::PoseStamped& start, const geometry_msgs::PoseStamped& goal,[m
+[31m-                                        int cells_x, int cells_y, std::vector<geometry_msgs::PoseStamped>& plan ,ros::Publisher& pub, visualization_msgs::MarkerArray& pathNodes) = 0;[m
+[31m-    virtual ~Expander() {}[m
+[31m-    protected:[m
+[31m-    std::string frame_id_;[m
+[31m-    costmap_2d::Costmap2D* costmap;[m
+[31m-    /* data */[m
+[31m-};[m
+[31m-[m
+[31m-[m
+[31m-} //end of namespace hybrid_astar_planner[m
+[31m-#endif //end of expander.h[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/include/hybrid_astar.h b/hybrid_astar_planner-main/include/hybrid_astar.h[m
+[1mdeleted file mode 100644[m
+[1mindex 1108fb4..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/hybrid_astar.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,89 +0,0 @@[m
+[31m-#ifndef _HYBRID_ASTAR_H[m
+[31m-#define _HYBRID_ASTAR_H[m
+[31m-[m
+[31m-#include <vector>[m
+[31m-#include "algorithm.h"[m
+[31m-#include "expander.h"[m
+[31m-#include "node3d.h"[m
+[31m-#include <visualization_msgs/MarkerArray.h>[m
+[31m-#include <ros/publisher.h>[m
+[31m-// #define TEST[m
+[31m-#define point_accuracy 0.5[m
+[31m-#define theta_accuracy 2[m
+[31m-namespace hybrid_astar_planner {[m
+[31m-[m
+[31m-class hybridAstar : public Expander[m
+[31m-{[m
+[31m-[m
+[31m-    public:[m
+[31m-    /**[m
+[31m-     * @brief  Default constructor for the HybridAStarPlanner object[m
+[31m-    */[m
+[31m-    hybridAstar(std::string frame_id, costmap_2d::Costmap2D* _costmap)[m
+[31m-    :Expander(frame_id, _costmap) {[m
+[31m-[m
+[31m-    }[m
+[31m-[m
+[31m-    /**[m
+[31m-     * @brief Find the path between the start pose and goal pose[m
+[31m-     * @param start the reference of start pose [m
+[31m-     * @param goal the reference of goal pose [m
+[31m-     * @param cells_x the number of the cells of the costmap in x axis[m
+[31m-     * @param cells_y the number of the cells of the costmap in y axis[m
+[31m-     * @param plan the refrence of plan;[m
+[31m-     * @return true if a valid plan was found.[m
+[31m-    */[m
+[31m-    bool calculatePath([m
+[31m-        const geometry_msgs::PoseStamped& start, [m
+[31m-        const geometry_msgs::PoseStamped& goal,[m
+[31m-        int cellsX, int cellsY, std::vector<geometry_msgs::PoseStamped>& plan,[m
+[31m-        ros::Publisher& pub, visualization_msgs::MarkerArray& pathNodes);[m
+[31m-    [m
+[31m-    /**[m
+[31m-     * @brief Default deconstructor for the HybridAStarPlanner object[m
+[31m-    */[m
+[31m-    ~hybridAstar(){ }[m
+[31m-[m
+[31m-    private:[m
+[31m- [m
+[31m-    /**[m
+[31m-     * @brief Get the adjacent pose of a given pose[m
+[31m-     * @param cells_x the number of the cells of the costmap in x axis[m
+[31m-     * @param cells_y the number of the cells of the costmap in y axis[m
+[31m-     * @param charMap [m
+[31m-    */[m
+[31m-    std::vector<Node3D*> gatAdjacentPoints(int dir, int cells_x, int cells_y, const unsigned char* charMap, Node3D *point);[m
+[31m-[m
+[31m-    /**[m
+[31m-     * @brief judge whether is reach the goal pose[m
+[31m-     * @param node the refrence of the node[m
+[31m-     * @param goalPose the goal of the planner[m
+[31m-     * @return true if reach the goal[m
+[31m-    */[m
+[31m-    bool reachGoal(Node3D* node, Node3D* goalPose); [m
+[31m-[m
+[31m-    /**[m
+[31m-     * @brief get the index of node[m
+[31m-     * @param x the x position axis of the node[m
+[31m-     * @param y the y position axis of the node[m
+[31m-     * @param cells_x the scale of cells in x axis[m
+[31m-     * @param t the depth of the 3D nodes[m
+[31m-     * @return the index of node [m
+[31m-    */[m
+[31m-    int calcIndix(float x, float y, int cells_x, float t); [m
+[31m-[m
+[31m-    /**[m
+[31m-     * @brief transform the 2Dnode to geometry_msgs::PoseStamped[m
+[31m-     * @param node the ptr of node[m
+[31m-     * @param plan the refrence of plan[m
+[31m-    */[m
+[31m-    void nodeToPlan(Node3D* node, std::vector<geometry_msgs::PoseStamped>& plan);[m
+[31m-    std::unique_ptr<GridSearch> grid_a_star_heuristic_generator_;[m
+[31m-};[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-}//end of namespace hybrid_astar_planner[m
+[31m-[m
+[31m-#endif //the end of astar.h[m
+\ No newline at end of file[m
+[1mdiff --git a/hybrid_astar_planner-main/include/node2d.h b/hybrid_astar_planner-main/include/node2d.h[m
+[1mdeleted file mode 100644[m
+[1mindex 9ad298b..0000000[m
+[1m--- a/hybrid_astar_planner-main/include/node2d.h[m
+[1m+++ /dev/null[m
+[36m@@ -1,99 +0,0 @@[m
+[31m-#ifndef _NODE2D_H[m
+[31m-#define _NODE2D_H[m
+[31m-[m
+[31m-#include <cmath>[m
+[31m-#include <unordered_map>[m
+[31m-#include <costmap_2d/costmap_2d.h>[m
+[31m-namespace hybrid_astar_planner {[m
+[31m-[m
+[31m-class Node2D[m
+[31m-{[m
+[31m-public:[m
+[31m-    Node2D(): Node2D(0, 0, 999, 0, nullptr) {}[m
+[31m-    Node2D(int _x , int _y, float _g = 999, float _h = 0, Node2D* _perd = nullptr):[m
+[31m-    x(_x), y(_y), g(_g), h(_h), perd(_perd), o(false), c(false)[m
+[31m-    {[m
+[31m-        index = -1;[m
+[31m-    }[m
+[31m-    ~Node2D(){}[m
+[31m-    [m
+[31m-    void setX(int _x) { x = _x; }[m
+[31m-    void setY(int _y) { y = _y; }[m
+[31m-    void setCost(unsigned int C) { cost = C; }[m
+[31m-    void setG(float _g) { g = _g; }[m
+[31m-    void setH(float _h) { h = _h; }[m
+[31m-    void setClosedSet() { c = true; o = false; }[m
+[31m-    void setOpenSet() { o = true; }[m
+[31m-    void setPerd(Node2D* _perd) { perd = _perd; }[m
+[31m-    void setPerd_(std::shared_ptr<Node2D> _perd) { perd_node = _perd; }[m
+[31m-    int getX(void) { return x; }[m
+[31m-    int getY(void) { return y; }[m
+[31m-    float getF(void) const { return g + h; }[m
+[31m-    float calcG(Node2D const *partent);[m
+[31m-    float getG() const { return g; }[m
+[31m-    float calcH(Node2D const *goal);[m
+[31m-    int getindex(int width) { return (y * width + x); }[m
+[31m-    int getCost() {return cost;}[m
+[31m-    bool isOpenSet() { return o; }[m
+[31m-    bool isClosedSet() { return c; }[m
+[31m-    Node2D* getPerd() { return perd; }[m
+[31m-    void SetPathCost(const float path_cost) {[m
+[31m-        g = path_cost;[m
+[31m-    }[m
+[31m-    private:[m
+[31m-        // float cost_ = 999;[m
+[31m-        /// the x position[m
+[31m-        int x;[m
+[31m-        /// the y position[m
+[31m-        int y;[m
+[31m-        /// the cost of current node[m
+[31m-        unsigned int cost;[m
+[31m-        /// the cost-so-far[m
+[31m-        float g;[m
+[31m-        /// the cost-to-go[m
+[31m-        float h;[m
+[31m-        /// the index of the node in the 2D array[m
+[31m-        int index;[m
+[31m-        /// the open value[m
+[31m-        bool o;[m
+[31m-        /// the closed value[m
+[31m-        bool c;[m
+[31m-        /// the discovered value[m
+[31m-        bool d;[m
+[31m-        /// the predecessor pointer[m
+[31m-        Node2D* perd;[m
+[31m-        std::shared_ptr<Node2D> perd_node = nullptr;[m
+[31m-};[m
+[31m-[m
+[31m-class GridSearch {[m
+[31m-    public:[m
+[31m-    GridSearch()[m
+[31m-    {[m
+[31m-[m
+[31m-    }[m
+[31m-    ~GridSearch()[m
+[31m-    {[m
+[31m-        [m
+[31m-    }[m
+[31m-    std::vector<std::shared_ptr<Node2D>> getAdjacentPoints(int cells_x,[m
+[31m-        int cells_y, const unsigned char* charMap, std::shared_ptr<Node2D> point);[m
+[31m-[m
+[31m-    std::unordered_map<int, std::shared_ptr<Node2D>> GenerateDpMap([m
+[31m-        const double goal_x, const double goal_y, [m
+[31m-        costmap_2d::Costmap2D* costmap);[m
+[31m-    // std::unordered_map<int, std::shared_ptr<Node2D>> dp_map_;[m
+[31m-    private:[m
+[31m-[m
+[31m-    // std::unordered_map<int, std::shared_ptr<Node2D>> dp_map_;[m
+[31m-    struct cmp {[m
+[31m-        // Sorting 3D nodes by increasing C value - the total estimated cost[m
+[31m-        bool operator()(const std::pair<int, double>& left,[m
+[31m-                    const std::pair<int, double>& right) const {[m
+[31m-            return left.second >= 
